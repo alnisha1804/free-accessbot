@@ -3,7 +3,7 @@ import time
 from discord import app_commands
 import random
 import os
-from dotenv import load_dotenv
+
 
 # Internal user data (NOT recommended for production)
 # This is used for demonstration purposes only. You should use a proper database.
