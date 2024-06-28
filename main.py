@@ -65,6 +65,6 @@ async def mines(interaction: discord.Interaction, tile_amt: int, round_id: str):
       channel_id = 1256258500485713980  # Replace with the actual channel ID where purchase info is
       channel = client.get_channel(channel_id)
       if channel is not None:
-        await interaction.response.send_message(f" You've reached the daily limit. Consider purchasing the unlimited access version for more
+await interaction.response.send_message(f" You've reached the daily limit. Consider purchasing the unlimited access version for more rounds: <#1256258500485713980> ")  # Added closing quotation mark
 
 client.run('MTI1NjI2MzY4ODc2Mzk5ODM0MA.GALVwE.FGAKstsvbKEbZk66R_A54DuQD3NVhOCy9uda-s')
