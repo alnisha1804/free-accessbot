@@ -3,9 +3,9 @@ import time
 from discord import app_commands
 import random
 
-# Replace with your actual database interaction logic (e.g., using Google Sheets API)
+# Replace with your actual database interaction logic
 def check_user_play_count(user_id):
-  # Implement logic to connect to your database and retrieve play count and purchase flag for the user ID
+  # Implement logic to connect to your database and retrieve play count and purchase flag
   # This example returns dummy values for demonstration
   play_count = 0
   purchase_flag = False
@@ -58,10 +58,13 @@ async def mines(interaction: discord.Interaction, tile_amt: int, round_id: str):
       em = discord.Embed(color=0x0025ff)
       em.add_field(name='Grid', value="\n" + "`" + grid[0] + grid[1] + grid[2] + grid[3] + grid[4] + "\n" + grid[5] + grid[6] + grid[7] + grid[8] + grid[9] + "\n" + grid[10] + grid[11] + grid[12] + grid[13] + grid[14] + "\n" + grid[15] + grid[16] + grid[17] + grid[18] + grid[19] + "\n" + grid[20] + grid[21] + grid[22] + grid[23] + grid[24] + "`\n" + f"**Accuracy**\n`{chance}%`\n**Round ID**\n`{round_id}`\n**Response Time:**\n`{str(int(time.time() - int(start_time)))}`")
       em.set_footer(text='made by Amaan')
-      await interaction.response.send_message(" You've reached the daily limit, Consider purchasing the unlimited access version for more rounds: https://discord.gg/eb55PE24 ")
+      await interaction.response.send_message(embed=em)
       update_user_play_count(user_id)  # Update play count after successful game
-    elif purchase_flag:  # Allow unlimited plays if purchased
-      start_time = time.time()
-      grid = ['❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌', '❌']
+    else:
+      # Handle user reaching daily limit
+      channel_id = 1256258500485713980  # Replace with the actual channel ID where purchase info is
+      channel = client.get_channel(channel_id)
+      if channel is not None:
+        await interaction.response.send_message(f" You've reached the daily limit. Consider purchasing the unlimited access version for more
 
 client.run('MTI1NjI2MzY4ODc2Mzk5ODM0MA.GALVwE.FGAKstsvbKEbZk66R_A54DuQD3NVhOCy9uda-s')
