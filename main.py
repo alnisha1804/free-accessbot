@@ -1,9 +1,9 @@
+import os
+from dotenv import load_dotenv
 import discord
 import time
 from discord import app_commands
 import random
-import os
-
 
 # Internal user data (NOT recommended for production)
 # This is used for demonstration purposes only. You should use a proper database.
@@ -72,12 +72,7 @@ async def mines(interaction: discord.Interaction, tile_amt: int, round_id: str):
     
       await interaction.response.send_message("You've reached the daily limit. Consider purchasing the unlimited access version for more: <#1256258500485713980> ")
 
+# Load environment variables and run the bot
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-client = discord.Client()
-
-@client.event
-async def on_ready():
-    print(f'{client.user} has connected to Discord!')
-
-client.run(TOKEN)
+token = os.getenv('TOKEN')
+client.run(token)
